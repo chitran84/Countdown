@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CounterDown Plugin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+ 
+    <div class="main_box">
+        <h2>Reena Girl Birthday Countdown</h2>
+        <div class="counterDown">
+           <span>Days:  <span class="days" ></span></span>
+            <span>Hours: <span class="hours" ></span></span>
+            <span>Minutes: <span class="minutes" ></span></span>
+            <span>Seconds: <span class="seconds" ></span></span>
+        </div>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>
+<script>
+let day = document.querySelector('.days')
+let hour = document.querySelector('.hours')
+let minute = document.querySelector('.minutes')
+let second = document.querySelector('.seconds')
+let mainBox = document.querySelector('.main_box')
+
+setInterval(function(){
+
+let UpcomingDate = new Date('05 november 2022 11:59:00 PM');
+let NowDate = new Date();
+let differanceTime  = Math.floor((UpcomingDate-NowDate)/1000)
+
+
+let differanceDay = Math.floor(differanceTime/60/60/24)
+let differanceHour = Math.floor((differanceTime/60/60)%24)
+let differanceMinute = Math.floor((differanceTime/60)%60)
+let differanceSecound = Math.floor(differanceTime%60)
+
+
+
+if(differanceDay >= 0){
+    mainBox.style.display = "block";
+    day.innerHTML =  differanceDay;
+    hour.innerHTML =  differanceHour;
+    minute.innerHTML =differanceMinute;
+    second.innerHTML = differanceSecound;   
+}
+
+
+},1000)
+
+
+</script>
